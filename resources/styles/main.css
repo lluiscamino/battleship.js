@@ -1,0 +1,40 @@
+#player_grid {
+	float: left;
+	margin-right: 30px;
+}
+.grid_btn {
+	height: 36px;
+	width: 36px;
+	cursor: pointer;
+	color: transparent;
+	transition: 0.5s;
+}
+
+.grid_btn[data-type="info"] {
+	cursor: auto;
+	color: initial;
+}
+.grid_btn[data-type="player"] {
+	pointer-events: none;
+	transition: 3s;
+}
+#invisible {
+	visibility: hidden;
+}
+
+/* Boat cells */
+#cell_water, #cell_touched, #cell_sunken {
+	pointer-events: none;
+}
+#cell_player_boat {
+	background-color: blue;
+}
+#cell_water {
+	background-color: aqua;
+}
+#cell_touched {
+	background-color: orangered;
+}
+#cell_sunken {
+	background-color: red;
+}
