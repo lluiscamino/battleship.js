@@ -16,7 +16,7 @@ class OpponentAI {
 	}
 	
 	static checkForBoat(w, h, dir = -1) {
-		if (Player.grid[w][h] === 1) {
+		if (OpponentAI.checkIfValidCell(w, h) && Player.grid[w][h] === 1) {
 			OpponentAI.foundBoatCell = true;
 			if (OpponentAI.firstCell[0] === -1) {
 				OpponentAI.firstCell = [w, h];
