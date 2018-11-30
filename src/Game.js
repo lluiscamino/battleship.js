@@ -6,8 +6,6 @@ class Game {
 		Game.numBoatTypes = 5;
 		Game.numBoatsPerType = [0, 2, 2, 1, 1, 1];
 		Game.numBoats = Game.getNumBoats();
-		Game.moves = 0;
-		Game.winner;
 	}
 	
 	static getNumBoats() {
@@ -36,7 +34,7 @@ class Game {
 	}
 	
 	static randomCell() {
-		return new Array(parseInt(Math.floor(Math.random() * Game.gridSize)), parseInt(Math.floor(Math.random() * Game.gridSize)));
+		return [parseInt(Math.floor(Math.random() * Game.gridSize)), parseInt(Math.floor(Math.random() * Game.gridSize))];
 	}
 	
 	static whoStarts() {
@@ -77,15 +75,13 @@ class Game {
 		if (gridType === 'player') {
 			var grid = Player.grid;
 			var boats = Player.boats;
-		}
-		else
-		{
+		} else {
 			var grid = Opponent.grid;
 			var boats = Opponent.boats;
 		}
 		var stage = Game.numBoatTypes, numCellsBoat = 0, numBoatsType, i = 0, j = 0, randomCell, direction, boatID = 0;
 		
-		while (stage != 0) {
+		while (stage !== 0) {
 			numBoatsType = 0;
 			while (numBoatsType < Game.numBoatsPerType[stage]) {
 				numCellsBoat = 0, i = 0, j = 0;

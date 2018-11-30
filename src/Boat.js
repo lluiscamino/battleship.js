@@ -49,10 +49,10 @@ class Boat {
 			return false;
 		}
 		
-		var k = 0, gridToCheck, stage = -1, i = 0, j = 0;
+		var stage = -1, i = 0, j = 0;
 		
 		while (stage < 2) {
-			for (k = -1; k <= this.size; k++) {
+			for (var k = -1; k <= this.size; k++) {
 				if (this.direction === 'H') {
 					i = k;
 					j = stage;

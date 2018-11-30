@@ -1,15 +1,15 @@
 class Opponent {
 	constructor() {
 		Opponent.numBoatsAlive = Game.numBoats;
-		Opponent.grid = new Array(Game.gridSize);
+		Opponent.grid = [];
 		Opponent.initializeGrid();
-		Opponent.boats = new Array(Game.numBoatTypes);
+		Opponent.boats = [];
 		Opponent.initializeBoats();
 	}
 	
 	static initializeGrid() {
 		for (var i = 0; i < Game.gridSize; i++) {
-			Opponent.grid[i] = new Array(Game.gridSize);
+			Opponent.grid[i] = [];
 			for (var j = 0; j < Game.gridSize; j++) {
 				Opponent.grid[i][j] = 0;
 			}
@@ -18,11 +18,11 @@ class Opponent {
 	
 	static initializeBoats() {
 		for (var i = 0; i < Game.numBoatTypes; i++) {
-			Opponent.boats[i] = new Array(Game.numBoatsPerType[i+1]);
+			Opponent.boats[i] = [];
 			for (var j = 0; j < Game.numBoatsPerType[i+1]; j++) {
-				Opponent.boats[i][j] = new Array(i+1);
+				Opponent.boats[i][j] = [];
 				for (var k = 0; k < i+1; k++) {
-					Opponent.boats[i][j][k] = new Array(2);
+					Opponent.boats[i][j][k] = [];
 					for (var d = 0; d < 2; d++) {
 						Opponent.boats[i][j][k][d] = 0;
 					}

@@ -1,15 +1,15 @@
 class Player {
 	constructor() {
 		Player.numBoatsAlive = Game.numBoats;
-		Player.grid = new Array(Game.gridSize);
+		Player.grid = [];
 		Player.initializeGrid(Game.gridSize);
-		Player.boats = new Array(Game.numBoatTypes);
+		Player.boats = [];
 		Player.initializeBoats();
 	}
 	
 	static initializeGrid(gridSize) {
 		for (var i = 0; i < gridSize; i++) {
-			Player.grid[i] = new Array(gridSize);
+			Player.grid[i] = [];
 			for (var j = 0; j < gridSize; j++) {
 				Player.grid[i][j] = 0;
 			}
@@ -18,11 +18,11 @@ class Player {
 	
 	static initializeBoats() {
 		for (var i = 0; i < Game.numBoatTypes; i++) {
-			Player.boats[i] = new Array(Game.numBoatsPerType[i+1]);
+			Player.boats[i] = [];
 			for (var j = 0; j < Game.numBoatsPerType[i+1]; j++) {
-				Player.boats[i][j] = new Array(i+1);
+				Player.boats[i][j] = [];
 				for (var k = 0; k < i+1; k++) {
-					Player.boats[i][j][k] = new Array(2);
+					Player.boats[i][j][k] = [];
 					for (var d = 0; d < 2; d++) {
 						Player.boats[i][j][k][d] = 0;
 					}

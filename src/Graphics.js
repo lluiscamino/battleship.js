@@ -92,7 +92,7 @@ class Graphics {
 		Graphics.checkElement(cells);
 		var value = block ? 'none' : 'auto';
 		for (var i = 0; i < cells.length; i++) {
-			cells[i].style.pointerEvents = 'none';
+			cells[i].style.pointerEvents = value;
 		}
 	}
 	
