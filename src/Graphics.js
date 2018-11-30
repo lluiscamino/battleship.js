@@ -84,6 +84,18 @@ class Graphics {
 		}
 	}
 	
+	static unBlockCells(block) {
+		if (typeof block !== typeof true) {
+			throw 'block must be true of false';
+		}
+		var cells = document.getElementsByClassName('grid_btn');
+		Graphics.checkElement(cells);
+		var value = block ? 'none' : 'auto';
+		for (var i = 0; i < cells.length; i++) {
+			cells[i].style.pointerEvents = 'none';
+		}
+	}
+	
 	static checkElement(element) {
 		if (element == null) {
 			throw 'DOM Element does not exist';

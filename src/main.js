@@ -1,11 +1,7 @@
 var battleship = new Game;
-var player = new Player;
-var opponent = new Opponent;
-var opponentAI = new OpponentAI;
+Game.initGame();
 
 document.addEventListener('DOMContentLoaded', function() {
-	Player.placeBoats();
-	Opponent.placeBoats();
 	var gridBtns = document.getElementsByClassName('grid_btn');
 	var playerGrid = document.getElementById('player_grid');
 	var opponentGrid = document.getElementById('opponent_grid');
@@ -26,19 +22,29 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	for (var i = 0; i < gridBtns.length; i++) {
 		gridBtns[i].addEventListener('click', function() {
-			if (this.getAttribute('data-type') === 'opponent') {
-				if (Game.turn === 'player') {
-					Player.shootCell(this.getAttribute('data-w'), this.getAttribute('data-h'));
-					Graphics.updateGrid('opponent', opponentGrid);
-					Game.switchTurn();
-					Opponent.shootCell();
-					Graphics.updateGrid('player', playerGrid);
-					Game.switchTurn();
+			if (Game.hasStarted) {
+				if (this.getAttribute('data-type') === 'opponent') {
+					if (Game.turn === 'player') {
+						Player.shootCell(this.getAttribute('data-w'), this.getAttribute('data-h'));
+						Graphics.updateGrid('opponent', opponentGrid);
+						if (Opponent.numBoatsAlive === 0) {
+							Game.restartGame(playerGrid, opponentGrid, 'player');
+						}
+						Game.switchTurn();
+						Opponent.shootCell();
+						Graphics.updateGrid('player', playerGrid);
+						if (Player.numBoatsAlive === 0) {
+							Game.restartGame(playerGrid, opponentGrid, 'opponent');
+						}
+						Game.switchTurn();
+					} else {
+						throw 'It is not your turn';
+					}
 				} else {
-					throw 'It is not your turn';
+					throw 'data-type attribute must be equal to opponent';
 				}
 			} else {
-				throw 'data-type attribute must be equal to opponent';
+				throw 'Game has already ended';
 			}
 		});
 	}

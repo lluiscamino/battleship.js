@@ -5,8 +5,13 @@ class Game {
 		Game.gridSize = 10;
 		Game.numBoatTypes = 5;
 		Game.numBoatsPerType = [0, 2, 2, 1, 1, 1];
+		Game.numBoats = Game.getNumBoats();
 		Game.moves = 0;
 		Game.winner;
+	}
+	
+	static getNumBoats() {
+		return Game.numBoatsPerType.reduce((a, b) => a+b);
 	}
 	
 	static cellCodeToString(w, h) {
@@ -113,5 +118,30 @@ class Game {
 			Opponent.grid = grid.slice();
 			Opponent.boats = boats.slice();
 		}
+	}
+	
+	static restartGame(playerGrid, opponentGrid, winner=false) {
+		Graphics.checkElement(playerGrid);
+		Graphics.checkElement(opponentGrid);
+		if (winner !== false) {
+			alert(winner + ' won!');
+			var conf = confirm('Do you want to restart the game?');
+			if (conf) {
+				Game.initGame();
+				Graphics.updateGrid('opponent', opponentGrid);
+				Graphics.updateGrid('player', playerGrid);
+			} else {
+				Game.hasStarted = false;
+				Graphics.unBlockCells(true);
+			}
+		}
+	}
+	
+	static initGame() {
+		var player = new Player;
+		var opponent = new Opponent;
+		var opponentAI = new OpponentAI;
+		Player.placeBoats();
+		Opponent.placeBoats();
 	}
 }

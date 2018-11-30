@@ -1,7 +1,6 @@
 class Opponent {
 	constructor() {
-		this.attempts = 0;
-		Opponent.numBoatsAlive = Game.numBoatTypes;
+		Opponent.numBoatsAlive = Game.numBoats;
 		Opponent.grid = new Array(Game.gridSize);
 		Opponent.initializeGrid();
 		Opponent.boats = new Array(Game.numBoatTypes);

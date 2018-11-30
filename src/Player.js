@@ -1,7 +1,6 @@
 class Player {
 	constructor() {
-		this.attempts = 0;
-		Player.numBoatsAlive = Game.numBoatTypes;
+		Player.numBoatsAlive = Game.numBoats;
 		Player.grid = new Array(Game.gridSize);
 		Player.initializeGrid(Game.gridSize);
 		Player.boats = new Array(Game.numBoatTypes);
