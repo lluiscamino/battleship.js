@@ -14,13 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	Graphics.unBlockRestartBtn(restartBtn, true);
 	
-	try {
-		var messageBox = new MessageBox(messageBoxElement);
-		Graphics.loadGrids(playerGrid, opponentGrid, Game.gridSize);
-	} catch(e) {
-		throw 'Could not start game.';
-		return;
-	}
+
+	var messageBox = new MessageBox(messageBoxElement);
+	Graphics.loadGrids(playerGrid, opponentGrid, Game.gridSize);
+
 	
 	if (Game.turn === 'opponent') {
 		MessageBox.addMsg('The opponent starts.');

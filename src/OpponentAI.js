@@ -56,6 +56,8 @@ class OpponentAI {
 				return [OpponentAI.lastCell[0]-1, OpponentAI.lastCell[1]];
 			case 3:
 				return [OpponentAI.lastCell[0]+1, OpponentAI.lastCell[1]];
+			default:
+				throw 'Invalid direction code';
 		}
 	}
 	

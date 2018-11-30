@@ -105,7 +105,7 @@ class Graphics {
 	}
 	
 	static checkElement(element) {
-		if (element == null) {
+		if (element === null) {
 			throw 'DOM Element does not exist';
 		}
 	}

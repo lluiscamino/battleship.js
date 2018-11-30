@@ -84,7 +84,9 @@ class Game {
 		while (stage !== 0) {
 			numBoatsType = 0;
 			while (numBoatsType < Game.numBoatsPerType[stage]) {
-				numCellsBoat = 0, i = 0, j = 0;
+				numCellsBoat = 0;
+				i = 0;
+				j = 0;
 				randomCell = Game.randomCell();
 				direction = Math.random() < 0.5 ? 'H' : 'V';
 				var boat = new Boat(gridType, stage, direction, randomCell[0], randomCell[1], false);
