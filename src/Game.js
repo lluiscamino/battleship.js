@@ -116,21 +116,23 @@ class Game {
 		}
 	}
 	
-	static restartGame(playerGrid, opponentGrid, winner=false) {
+	static endGame(winner) {
+		MessageBox.addMsg('<b>' + winner.charAt(0).toUpperCase() + winner.slice(1) + ' won!</b>', true);
+		Game.hasStarted = false;
+		Graphics.unBlockCells(true);
+		Graphics.unBlockRestartBtn(document.getElementById('restart_btn'), false);
+	}
+	
+	static restartGame(playerGrid, opponentGrid) {
 		Graphics.checkElement(playerGrid);
 		Graphics.checkElement(opponentGrid);
-		if (winner !== false) {
-			alert(winner + ' won!');
-			var conf = confirm('Do you want to restart the game?');
-			if (conf) {
-				Game.initGame();
-				Graphics.updateGrid('opponent', opponentGrid);
-				Graphics.updateGrid('player', playerGrid);
-			} else {
-				Game.hasStarted = false;
-				Graphics.unBlockCells(true);
-			}
-		}
+		Game.initGame();
+		Graphics.updateGrid('opponent', opponentGrid);
+		Graphics.updateGrid('player', playerGrid);
+		Graphics.unBlockCells(false);
+		Graphics.unBlockRestartBtn(document.getElementById('restart_btn'), true);
+		MessageBox.clear();
+		Game.hasStarted = true;
 	}
 	
 	static initGame() {

@@ -32,13 +32,13 @@ class Player {
 	}
 	
 	static placeBoats() {
-		console.time('Player grid generated');
+		// console.time('Player grid generated');
 		Game.setGridRandomly('player');
-		console.timeEnd('Player grid generated')
+		// console.timeEnd('Player grid generated')
 	}
 	
 	static shootCell(w, h) {
 		Game.shootCell('player', w, h);
-		console.log(Game.stateCodeToString(Opponent.grid[w][h]) + '! Player shot cell ' + Game.cellCodeToString(w, h) + ' and found ' + Game.stateCodeToString(Opponent.grid[w][h]-2));
+		MessageBox.addMsg('<span class="box_text" id="text_' + Opponent.grid[w][h] + '">' + Game.stateCodeToString(Opponent.grid[w][h]) + '!</span> Player shot cell <b>' + Game.cellCodeToString(w, h) + '</b>');
 	}
 }

@@ -84,6 +84,14 @@ class Graphics {
 		}
 	}
 	
+	static unBlockRestartBtn(element, block) {
+		if (typeof block !== typeof true) {
+			throw 'block must be true of false';
+		}
+		Graphics.checkElement(element);
+		element.disabled = block;
+	}
+	
 	static unBlockCells(block) {
 		if (typeof block !== typeof true) {
 			throw 'block must be true of false';

@@ -1,3 +1,6 @@
+.container {
+	text-align: center;
+}
 #player_grid {
 	float: left;
 	margin-right: 30px;
@@ -20,6 +23,34 @@
 }
 #invisible {
 	visibility: hidden;
+}
+#restart_btn {
+	cursor: pointer;
+}
+/* Message Box Text */
+#message_box {
+	border: 1px solid #e5e5e5;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-radius: 3px;
+	font-size: 14px;
+	height: 214px;
+	overflow-y: auto;
+}
+.box_text {
+	font-weight: bold;
+}
+#text_2 {
+	color: #00afff;
+}
+#text_3 {
+	color: orangered;
+}
+#text_4 {
+	color: red;
+}
+#important_msg {
+	background-color: orange;
 }
 
 /* Boat cells */

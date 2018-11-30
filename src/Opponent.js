@@ -32,14 +32,14 @@ class Opponent {
 	}
 	
 	static placeBoats() {
-		console.time('Opponent grid generated');
+		// console.time('Opponent grid generated');
 		Game.setGridRandomly('opponent');
-		console.timeEnd('Opponent grid generated')
+		// console.timeEnd('Opponent grid generated')
 	}
 	
 	static shootCell() {
 		var c = OpponentAI.giveCell();
 		Game.shootCell('opponent', c[0], c[1]);
-		console.log(Game.stateCodeToString(Player.grid[c[0]][c[1]]) + '! Opponent shot cell ' + Game.cellCodeToString(c[0], c[1]) + ' and found ' + Game.stateCodeToString(Player.grid[c[0]][c[1]]-2));
+		MessageBox.addMsg('<span class="box_text" id="text_' + Player.grid[c[0]][c[1]] + '">' + Game.stateCodeToString(Player.grid[c[0]][c[1]]) + '!</span> Opponent shot cell <b>' + Game.cellCodeToString(c[0], c[1]) + '</b>');
 	}
 }
