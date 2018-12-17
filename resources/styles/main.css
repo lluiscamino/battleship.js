@@ -1,3 +1,11 @@
+:root {
+	/* Colours */
+	--main-water: aqua;
+	--main-boat: blue;
+	--main-touched: #ff4500cc;
+	--main-sunken: red;
+}
+
 .container {
 	text-align: center;
 }
@@ -11,11 +19,17 @@
 	cursor: pointer;
 	color: transparent;
 	transition: 0.5s;
+	text-align: center;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	margin: 2px;
 }
 
 .grid_btn[data-type="info"] {
 	cursor: auto;
 	color: initial;
+	background-color: lightgrey;
 }
 .grid_btn[data-type="player"] {
 	pointer-events: none;
@@ -44,10 +58,10 @@
 	color: #00afff;
 }
 #text_3 {
-	color: orangered;
+	color: var(--main-touched);
 }
 #text_4 {
-	color: red;
+	color: var(--main-sunken);
 }
 #important_msg {
 	background-color: orange;
@@ -58,14 +72,14 @@
 	pointer-events: none;
 }
 #cell_player_boat {
-	background-color: blue;
+	background-color: var(--main-boat);
 }
 #cell_water {
-	background-color: aqua;
+	background-color: var(--main-water);
 }
 #cell_touched {
-	background-color: orangered;
+	background-color: var(--main-touched);
 }
 #cell_sunken {
-	background-color: red;
+	background-color: var(--main-sunken);
 }
