@@ -104,6 +104,11 @@ class OpponentAI {
 		}
 		if (!OpponentAI.foundBoatCell) {
 			var cell = OpponentAI.newRandomCell();
+			var boat = new Boat('player', 1, 'H', cell[0], cell[1], false);
+			while (!boat.fitsInGrid(false)) {
+				cell = OpponentAI.newRandomCell();
+				boat = new Boat('player', 1, 'H', cell[0], cell[1], false);
+			}
 			OpponentAI.checkForBoat(cell[0], cell[1]);
 		} else {
 			if (OpponentAI.directionCode === -1) {

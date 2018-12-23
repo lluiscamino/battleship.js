@@ -44,8 +44,8 @@ class Boat {
 		return this.boats[this.size][this.boatNum];
 	}
 	
-	fitsInGrid() {
-		if ((this.direction === 'H' && this.w+this.size+1 > Game.gridSize) || (this.direction === 'V' && this.h+this.size+1 > Game.gridSize)) {
+	fitsInGrid(considerUntouchedBoats = true) {
+		if ((this.direction === 'H' && this.w+this.size > Game.gridSize) || (this.direction === 'V' && this.h+this.size > Game.gridSize)) {
 			return false;
 		}
 		
@@ -62,7 +62,7 @@ class Boat {
 				}
 				var x = this.w+i;
 				var y = this.h+j;
-				if (x < Game.gridSize && y < Game.gridSize && x >= 0 && y >= 0 && this.grid[x][y] !== 0) {
+				if (x < Game.gridSize && y < Game.gridSize && x >= 0 && y >= 0 && ((considerUntouchedBoats && this.grid[x][y] !== 0) || (!considerUntouchedBoats && (this.grid[x][y] === 3 || this.grid[x][y] === 4)))) {
 					return false;
 				}
 			}
